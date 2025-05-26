@@ -1,5 +1,6 @@
 repeat wait() until game.Loaded
 
+_G.shouldQueueOnTeleport = true
 
 if not game.CoreGui:FindFirstChild("Gui") then
 
@@ -480,16 +481,6 @@ G2L["2f"] = Instance.new("BoolValue", G2L["1"]);
 G2L["2f"]["Name"] = [[Queue]];
 G2L["2f"]["Value"] = true;
 
-if G2L["2f"].Value then
-	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
-end
-
-G2L["2f"].Changed:Connect(function()
-	if G2L["2f"].Value then
-		queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
-	end
-end)
-
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -670,7 +661,8 @@ local script = G2L["20"];
 						v.ImageRectOffset = Vector2.new(256, 0)
 					end
 				elseif v.Name == "Close" then
-					script.Parent.Parent.Queue.Value = true
+					script.Parent.Parent.Queue.Value = false
+					_G.shouldQueueOnTeleport = false
 					wait()
 					script.Parent.Parent:Destroy()
 				end
@@ -776,5 +768,9 @@ task.spawn(C_27);
 
 return G2L["1"], require;
 
+end
+
+if _G.shouldQueueOnTeleport == true then
+	queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
 end
 
