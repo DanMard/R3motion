@@ -1,6 +1,6 @@
 repeat wait() until game.Loaded
 
-_G.shouldQueueOnTeleport = nil
+_G.shouldQueueOnTeleport = true
 
 if not game.CoreGui:FindFirstChild("Gui") then
 
