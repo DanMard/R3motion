@@ -1,3 +1,5 @@
+repeat wait() until game.Loaded
+
 --[=[
  d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
 88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
@@ -12,8 +14,9 @@ local G2L = {};
 
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
 
+if not game.CoreGui:FindFirstDescendant("Gui") then
 -- StarterGui.Gui
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 G2L["1"]["IgnoreGuiInset"] = true;
 G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
 G2L["1"]["Name"] = [[Gui]];
@@ -730,3 +733,4 @@ end;
 task.spawn(C_25);
 
 return G2L["1"], require;
+end
