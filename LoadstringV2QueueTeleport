@@ -10,7 +10,7 @@
 -- Instances: 44 | Scripts: 8 | Modules: 1 | Tags: 0
 local G2L = {};
 
-queue_on_teleport([[game:httpget(https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport")]])
+queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
 
 -- StarterGui.Gui
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
