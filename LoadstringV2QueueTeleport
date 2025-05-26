@@ -14,7 +14,7 @@ local G2L = {};
 
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/DanMard/R3motion/refs/heads/main/LoadstringV2QueueTeleport"))()')
 
-if not game.CoreGui:FindFirstDescendant("Gui") then
+if not game.CoreGui:FindFirstChild("Gui") then
 -- StarterGui.Gui
 G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 G2L["1"]["IgnoreGuiInset"] = true;
